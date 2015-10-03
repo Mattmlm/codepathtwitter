@@ -50,6 +50,19 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         return Static.instance!
     }
     
+    func homeTimelineWithCompletion(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            for tweet in tweets {
+                print("text: \(tweet.text), created: \(tweet.createdAtString)")
+            }
+            completion(tweets: tweets, error: nil)
+        }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+            print("error getting hometimeline")
+            completion(tweets: nil, error: error)
+        })
+    }
+    
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
         
@@ -81,19 +94,9 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                     print("Error verifying credentials: \(error)")
                     self.loginCompletion?(user: nil, error: error)
             })
-            
-            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-                for tweet in tweets {
-                    print("text: \(tweet.text), created: \(tweet.createdAtString)")
-                }
-                }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                    
-            })
-            
-            }) { (error: NSError!) -> Void in
-                print("Failed to receive access token: \(error)");
-                self.loginCompletion?(user: nil, error: error)
+        }) { (error: NSError!) -> Void in
+            print("Failed to receive access token: \(error)");
+            self.loginCompletion?(user: nil, error: error)
         }
     }
 }
