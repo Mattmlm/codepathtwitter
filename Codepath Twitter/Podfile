@@ -1,5 +1,6 @@
 platform :ios, "9.0"
 use_frameworks!
+inhibit_all_warnings!
 
 target 'Codepath Twitter' do
 	pod 'AFNetworking', '~> 2.5.4'
@@ -9,7 +10,6 @@ end
 
 post_install do |installer|
   directory = installer.config.project_pods_root + 'BDBOAuth1Manager/BDBOAuth1Manager'
-  puts directory
   if File.directory?(directory)
   	Dir.entries(directory).each do |filename|
   	  full_path = directory + filename
