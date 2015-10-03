@@ -23,12 +23,15 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onLoginButtonPressed() {
-        TwitterClient.sharedInstance.requestSerializer.removeAccessToken();
-        TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string:"http://codepath.com/"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) -> Void in
-                print("Success")
-            }) { (error: NSError!) -> Void in
-                print("Error: \(error)");
-        };
+        TwitterClient.sharedInstance.loginWithCompletion {
+            (user, error) -> () in
+            if user != nil {
+                // perform segue
+                self.performSegueWithIdentifier("LoginSegue", sender: self)
+            } else {
+                // handle login error
+            }
+        }
     }
 }
 
