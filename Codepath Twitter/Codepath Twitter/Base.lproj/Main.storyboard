@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBW-nT-40k">
-                                <rect key="frame" x="281" y="129" width="38" height="30"/>
+                                <rect key="frame" x="277" y="129" width="47" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="onLoginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DVe-Ia-nVA"/>
                                 </connections>
@@ -29,13 +29,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="ont-PG-InN" kind="presentation" identifier="LoginSegue" id="niD-Vg-Ls1"/>
+                        <segue destination="7JE-8p-mOY" kind="presentation" identifier="LoginSegue" id="niD-Vg-Ls1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Tweets View Controller-->
+        <!--Home-->
         <scene sceneID="uac-DG-nuW">
             <objects>
                 <viewController storyboardIdentifier="TweetsViewController" id="ont-PG-InN" customClass="TweetsViewController" customModule="Codepath_Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,21 +46,38 @@
                     <view key="view" contentMode="scaleToFill" id="CXh-H5-K8h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoZ-vB-oCz">
-                                <rect key="frame" x="276" y="285" width="48" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="ont-PG-InN" eventType="touchUpInside" id="Mfm-GC-ZOy"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Home" id="LUl-bq-BZs">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="atH-c5-kcV">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="ont-PG-InN" id="DjY-mL-VoH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="v4T-UK-yng"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ril-T8-F17" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1816" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RL2-yg-0QH">
+            <objects>
+                <navigationController storyboardIdentifier="HomeNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="7JE-8p-mOY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FCK-y2-waW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ont-PG-InN" kind="relationship" relationship="rootViewController" id="dly-gJ-GCl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7OK-hV-h02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1004" y="136"/>
         </scene>
