@@ -44,10 +44,23 @@
                         <viewControllerLayoutGuide type="bottom" id="aY4-81-ab9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CXh-H5-K8h">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lyH-Ox-n9U">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lyH-Ox-n9U" secondAttribute="trailing" id="3wC-Um-go4"/>
+                            <constraint firstItem="lyH-Ox-n9U" firstAttribute="top" secondItem="SsP-fk-Prb" secondAttribute="bottom" id="SWM-gg-jwK"/>
+                            <constraint firstItem="lyH-Ox-n9U" firstAttribute="leading" secondItem="CXh-H5-K8h" secondAttribute="leading" id="UZN-Rx-ZwP"/>
+                            <constraint firstItem="aY4-81-ab9" firstAttribute="top" secondItem="lyH-Ox-n9U" secondAttribute="bottom" id="lCU-Da-pqB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="LUl-bq-BZs">
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="atH-c5-kcV">
@@ -57,6 +70,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="v4T-UK-yng"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="lyH-Ox-n9U" id="ThW-n9-Ssy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ril-T8-F17" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +83,8 @@
             <objects>
                 <navigationController storyboardIdentifier="HomeNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="7JE-8p-mOY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FCK-y2-waW">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="FCK-y2-waW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>

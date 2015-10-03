@@ -19,6 +19,7 @@
 		849EEE0B1BBDCB3E00D46DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849EEE0A1BBDCB3E00D46DE6 /* Assets.xcassets */; };
 		849EEE0E1BBDCB3E00D46DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849EEE0C1BBDCB3E00D46DE6 /* LaunchScreen.storyboard */; };
 		84E786BE1BBFB9F900457CCB /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E786BD1BBFB9F900457CCB /* TweetsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		84E786C01BC034E100457CCB /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E786BF1BC034E100457CCB /* TweetTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		849EEE0D1BBDCB3E00D46DE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		849EEE0F1BBDCB3E00D46DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E786BD1BBFB9F900457CCB /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
+		84E786BF1BC034E100457CCB /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		BA2B1D813B4712CDC4A0EE9F /* Pods-Codepath Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Codepath Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Codepath Twitter/Pods-Codepath Twitter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				849EEE031BBDCB3E00D46DE6 /* AppDelegate.swift */,
 				849EEE051BBDCB3E00D46DE6 /* LoginViewController.swift */,
 				84E786BD1BBFB9F900457CCB /* TweetsViewController.swift */,
+				84E786BF1BC034E100457CCB /* TweetTableViewCell.swift */,
 				849EEE071BBDCB3E00D46DE6 /* Main.storyboard */,
 				849EEE0A1BBDCB3E00D46DE6 /* Assets.xcassets */,
 				849EEE0C1BBDCB3E00D46DE6 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 				84E786BE1BBFB9F900457CCB /* TweetsViewController.swift in Sources */,
 				8430BD511BBE6E4000C13E3C /* TwitterClient.swift in Sources */,
 				849EEE041BBDCB3E00D46DE6 /* AppDelegate.swift in Sources */,
+				84E786C01BC034E100457CCB /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
