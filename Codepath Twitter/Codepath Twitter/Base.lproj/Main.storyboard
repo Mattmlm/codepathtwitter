@@ -21,7 +21,7 @@
                                 <animations/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="onLoginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="cg5-3q-MUe"/>
+                                    <action selector="onLoginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DVe-Ia-nVA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,10 +35,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Tweets View Controller-->
         <scene sceneID="uac-DG-nuW">
             <objects>
-                <viewController storyboardIdentifier="TweetsViewController" id="ont-PG-InN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="ont-PG-InN" customClass="TweetsViewController" customModule="Codepath_Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SsP-fk-Prb"/>
                         <viewControllerLayoutGuide type="bottom" id="aY4-81-ab9"/>
@@ -46,13 +46,23 @@
                     <view key="view" contentMode="scaleToFill" id="CXh-H5-K8h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoZ-vB-oCz">
+                                <rect key="frame" x="276" y="285" width="48" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="ont-PG-InN" eventType="touchUpInside" id="Mfm-GC-ZOy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ril-T8-F17" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992" y="136"/>
+            <point key="canvasLocation" x="1004" y="136"/>
         </scene>
     </scenes>
 </document>

@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onLoginButtonPressed() {
+    @IBAction func onLoginButtonPressed(sender: AnyObject) {
         TwitterClient.sharedInstance.loginWithCompletion {
             (user, error) -> () in
             if user != nil {
