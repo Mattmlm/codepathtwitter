@@ -29,6 +29,12 @@ class TweetDetailsViewController: UIViewController {
         self.userNameLabel.text = self.tweet.user?.name!
         self.screenNameLabel.text = "@\((self.tweet.user?.screenname)!)"
         self.tweetTextLabel.text = self.tweet.text!
+        
+        TweetDateFormatter.setDateFormatterForTweetDetails()
+        self.tweetCreatedAtLabel.text = TweetDateFormatter.sharedInstance.stringFromDate(self.tweet.createdAt!);
+        
+        self.tweetRetweetsCountLabel.text = "\(self.tweet.retweetCount!)"
+        self.tweetFavoritesCountLabel.text = "\(self.tweet.favoriteCount!)"
 
         // Do any additional setup after loading the view.
     }

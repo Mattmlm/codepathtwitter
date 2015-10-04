@@ -22,4 +22,12 @@ class TweetDateFormatter : NSObject {
         
         return Static.instance!
     }
+    
+    class func setDateFormatterForInterpretingJSON() {
+        sharedInstance.dateFormat = "EEE MMM d HH:mm:ss Z y"
+    }
+    
+    class func setDateFormatterForTweetDetails() {
+        sharedInstance.dateFormat = "M/d/yy, h:mm a"
+    }
 }
