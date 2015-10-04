@@ -20,7 +20,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
-        self.tableView.registerClass(TweetTableViewCell.self, forCellReuseIdentifier: "TweetCell")
+        let tweetCellNib = UINib(nibName: "TweetTableViewCell", bundle: nil)
+        self.tableView.registerNib(tweetCellNib, forCellReuseIdentifier: "TweetCell")
+        
+        self.tableView.estimatedRowHeight = 120;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
 
         // Do any additional setup after loading the view.
         TwitterClient.sharedInstance.homeTimelineWithCompletion(nil) { (tweets, error) -> () in
@@ -53,8 +57,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath)
-        cell.textLabel!.text = tweets?[indexPath.row].user?.name;
+        let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetTableViewCell
+        cell.profileImageView.setImageWithURL(NSURL(string: (tweets?[indexPath.row].user?.profileImageUrl!)!)!)
+        cell.userNameLabel.text = tweets?[indexPath.row].user?.name!
+        cell.screenNameLabel.text = "@\(tweets?[indexPath.row].user?.screenname!)"
+        cell.tweetTextLabel.text = tweets?[indexPath.row].text!
+        //cell.textLabel!.text = tweets?[indexPath.row].user?.name;
         return cell
     }
     
