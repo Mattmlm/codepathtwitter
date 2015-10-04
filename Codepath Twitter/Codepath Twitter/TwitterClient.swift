@@ -50,6 +50,19 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         return Static.instance!
     }
     
+    func composeTweetWithCompletion(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/update.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            //
+            print(response)
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            completion(tweet: tweet, error: nil)
+        }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+            //
+            print("error composing tweet")
+            completion(tweet: nil, error: error)
+        }
+    }
+    
     func homeTimelineWithCompletion(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             print(response)

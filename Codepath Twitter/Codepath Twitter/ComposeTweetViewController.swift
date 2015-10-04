@@ -8,8 +8,12 @@
 
 import UIKit
 
+
+
 class ComposeTweetViewController: UIViewController {
 
+    @IBOutlet weak var tweetField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +30,12 @@ class ComposeTweetViewController: UIViewController {
     }
 
     @IBAction func onTweetButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil);
+        let dict = NSDictionary(object: tweetField.text!, forKey: "status");
+        TwitterClient.sharedInstance.composeTweetWithCompletion(dict) { (tweet, error) -> () in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil);
+            })
+        }
     }
     
     /*
