@@ -13,6 +13,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var tweets: [Tweet]?
     var refreshControl = UIRefreshControl()
+    var formatter = NSDateComponentsFormatter()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -81,10 +82,13 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetTableViewCell
-        cell.profileImageView.setImageWithURL(NSURL(string: (tweets?[indexPath.row].user?.profileImageUrl!)!)!)
-        cell.userNameLabel.text = tweets?[indexPath.row].user?.name!
-        cell.screenNameLabel.text = "@\((tweets?[indexPath.row].user?.screenname)!)"
-        cell.tweetTextLabel.text = tweets?[indexPath.row].text!
+        let tweet = tweets?[indexPath.row]
+        cell.profileImageView.setImageWithURL(NSURL(string: (tweet?.user?.profileImageUrl!)!)!)
+        cell.userNameLabel.text = tweet?.user?.name!
+        cell.screenNameLabel.text = "@\((tweet?.user?.screenname)!)"
+        cell.tweetTextLabel.text = tweet?.text!
+        cell.tweetCreatedAtLabel.text = formatTimeElapsed(tweet?.createdAt)
+        
         return cell
     }
     
@@ -92,6 +96,17 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         performSegueWithIdentifier("showTweetDetails", sender: self);
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func formatTimeElapsed(sinceDate: NSDate?) -> String {
+        if let date = sinceDate {
+            self.formatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Abbreviated
+            self.formatter.collapsesLargestUnit = true
+            self.formatter.maximumUnitCount = 1
+            let interval = NSDate().timeIntervalSinceDate(date)
+            return self.formatter.stringFromTimeInterval(interval)!
+        }
+        return ""
     }
     
     // MARK: - Navigation
