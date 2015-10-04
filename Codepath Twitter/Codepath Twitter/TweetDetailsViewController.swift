@@ -49,7 +49,25 @@ class TweetDetailsViewController: UIViewController {
     }
     
     @IBAction func onRetweetButtonPressed(sender: AnyObject) {
-        
+        TwitterClient.sharedInstance.retweetWithCompletion(self.tweet.id!) { (tweet, error) -> () in
+            if (tweet != nil) {
+                let alert: UIAlertController = UIAlertController(title: "Retweeted!", message: nil, preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
+                    //
+                }
+                
+                alert.addAction(defaultAction);
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else if (error != nil) {
+                let alert: UIAlertController = UIAlertController(title: "There was an error retweeting", message: error!.userInfo["error"] as? String, preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
+                    //
+                }
+                
+                alert.addAction(defaultAction);
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func onFavoriteButtonPressed(sender: AnyObject) {

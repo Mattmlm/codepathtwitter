@@ -15,6 +15,8 @@ class Tweet: NSObject {
     var createdAt: NSDate?
     var retweetCount: Int?
     var favoriteCount: Int?
+    var id: Int?
+    var idString: String?
     
     init(dictionary: NSDictionary) {
         user = User(dictionary: dictionary["user"] as! NSDictionary)
@@ -22,6 +24,8 @@ class Tweet: NSObject {
         createdAtString = dictionary["created_at"] as? String
         retweetCount = dictionary["retweet_count"] as? Int
         favoriteCount = dictionary["favorite_count"] as? Int
+        id = dictionary["id"] as? Int
+        idString = dictionary["id_str"] as? String
         
         TweetDateFormatter.setDateFormatterForInterpretingJSON()
         let formatter = TweetDateFormatter.sharedInstance
