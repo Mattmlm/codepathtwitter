@@ -71,7 +71,10 @@ class TweetDetailsViewController: UIViewController {
     }
     
     @IBAction func onFavoriteButtonPressed(sender: AnyObject) {
-        
+        let params = NSDictionary(object: self.tweet.id!, forKey: "id")
+        TwitterClient.sharedInstance.favoriteWithCompletion(params) { (error) -> () in
+            
+        }
     }
     
     /*
