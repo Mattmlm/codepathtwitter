@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tweets: [Tweet]?
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,21 +27,42 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.tableView.estimatedRowHeight = 120;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
-
-        // Do any additional setup after loading the view.
-        TwitterClient.sharedInstance.homeTimelineWithCompletion(nil) { (tweets, error) -> () in
-            if (tweets != nil) {
-                self.tweets = tweets
-                self.tableView.reloadData();
-            } else {
-                
-            }
-        }
+        
+        // Set up refresh control
+        self.refreshControl.addTarget(self, action: "onRefresh", forControlEvents: .ValueChanged)
+        self.tableView.insertSubview(self.refreshControl, atIndex: 0)
+        
+        self.loadTweets()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadTweets() {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        TwitterClient.sharedInstance.homeTimelineWithCompletion(nil) { (tweets, error) -> () in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            if (tweets != nil) {
+                self.tweets = tweets
+                self.tableView.reloadData();
+            } else {
+                print("Error getting home timeline tweets:\(error)")
+            }
+        }
+    }
+    
+    func onRefresh() {
+        TwitterClient.sharedInstance.homeTimelineWithCompletion(nil) { (tweets, error) -> () in
+            self.refreshControl.endRefreshing()
+            if (tweets != nil) {
+                self.tweets = tweets
+                self.tableView.reloadData();
+            } else {
+                print("Error getting home timeline tweets:\(error)")
+            }
+        }
     }
     
     @IBAction func logoutButtonPressed(sender: AnyObject) {
