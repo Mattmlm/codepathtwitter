@@ -83,20 +83,26 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetTableViewCell
         cell.profileImageView.setImageWithURL(NSURL(string: (tweets?[indexPath.row].user?.profileImageUrl!)!)!)
         cell.userNameLabel.text = tweets?[indexPath.row].user?.name!
-        cell.screenNameLabel.text = "@\(tweets?[indexPath.row].user?.screenname!)"
+        cell.screenNameLabel.text = "@\((tweets?[indexPath.row].user?.screenname)!)"
         cell.tweetTextLabel.text = tweets?[indexPath.row].text!
-        //cell.textLabel!.text = tweets?[indexPath.row].user?.name;
         return cell
     }
     
-    /*
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showTweetDetails", sender: self);
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
+        if (segue.identifier == "showTweetDetails") {
+            let vc = segue.destinationViewController as! TweetDetailsViewController
+        }
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

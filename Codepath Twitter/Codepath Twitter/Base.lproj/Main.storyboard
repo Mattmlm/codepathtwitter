@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -68,15 +69,73 @@
                                 <action selector="logoutButtonPressed:" destination="ont-PG-InN" id="DjY-mL-VoH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="New" id="v4T-UK-yng"/>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="v4T-UK-yng">
+                            <connections>
+                                <segue destination="zM3-q9-YkH" kind="presentation" id="s99-yl-Xaz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lyH-Ox-n9U" id="ThW-n9-Ssy"/>
+                        <segue destination="GHI-h7-frg" kind="show" identifier="showTweetDetails" id="Coj-Zl-4aU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ril-T8-F17" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1816" y="136"/>
+        </scene>
+        <!--Tweet Details View Controller-->
+        <scene sceneID="OOl-Bv-Ow8">
+            <objects>
+                <viewController id="GHI-h7-frg" customClass="TweetDetailsViewController" customModule="Codepath_Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zzr-Xj-ccT"/>
+                        <viewControllerLayoutGuide type="bottom" id="xgd-MT-bNZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gcI-C2-xBh">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9p-C7-kMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2627" y="518"/>
+        </scene>
+        <!--Compose Tweet View Controller-->
+        <scene sceneID="lk1-q3-7Ns">
+            <objects>
+                <viewController id="HUb-pZ-Hl5" customClass="ComposeTweetViewController" customModule="Codepath_Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PEa-Kf-2wj"/>
+                        <viewControllerLayoutGuide type="bottom" id="nMA-o4-fsb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cja-qH-meU">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="n3M-DC-pZe">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="WQt-lR-aas">
+                            <connections>
+                                <action selector="onCancelButtonPressed:" destination="HUb-pZ-Hl5" id="Hqb-cx-zEz"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Tweet" id="W32-nY-LnE">
+                                <connections>
+                                    <action selector="onTweetButtonPressed:" destination="HUb-pZ-Hl5" id="dBZ-k3-b1W"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" title="140" id="8h1-i8-BFd"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HPv-EM-f7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3439" y="-173"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RL2-yg-0QH">
@@ -97,6 +156,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7OK-hV-h02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1004" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qiV-75-Yyk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zM3-q9-YkH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KNq-6e-fCp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HUb-pZ-Hl5" kind="relationship" relationship="rootViewController" id="v9a-Tu-4af"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="elV-CS-9gW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2627" y="-173"/>
         </scene>
     </scenes>
 </document>
