@@ -186,6 +186,7 @@
                                 <state key="normal" title="Reply"/>
                                 <connections>
                                     <action selector="onReplyButtonPressed:" destination="GHI-h7-frg" eventType="touchUpInside" id="hfD-fO-4XG"/>
+                                    <segue destination="zM3-q9-YkH" kind="presentation" identifier="replyToTweet" id="fSd-8c-jp6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agd-hq-WYH">
@@ -276,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9p-C7-kMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2627" y="508"/>
+            <point key="canvasLocation" x="2627" y="574"/>
         </scene>
         <!--Compose Tweet View Controller-->
         <scene sceneID="lk1-q3-7Ns">
@@ -370,4 +371,7 @@
             <point key="canvasLocation" x="2627" y="-173"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fSd-8c-jp6"/>
+    </inferredMetricsTieBreakers>
 </document>

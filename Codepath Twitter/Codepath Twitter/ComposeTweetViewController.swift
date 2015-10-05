@@ -14,10 +14,18 @@ class ComposeTweetViewController: UIViewController {
 
     @IBOutlet weak var tweetField: UITextField!
     
+    var replyToTweet: Tweet?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if replyToTweet != nil {
+            self.tweetField.text = "@\((replyToTweet!.user?.screenname)!) "
+        }
+        
+        self.tweetField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +38,11 @@ class ComposeTweetViewController: UIViewController {
     }
 
     @IBAction func onTweetButtonPressed(sender: AnyObject) {
-        let dict = NSDictionary(object: tweetField.text!, forKey: "status");
+        var dict = NSMutableDictionary()
+        dict["status"] = tweetField.text!
+        if replyToTweet != nil {
+            dict["in_reply_to_status_id"] = replyToTweet!.idString!
+        }
         TwitterClient.sharedInstance.composeTweetWithCompletion(dict) { (tweet, error) -> () in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.dismissViewControllerAnimated(true, completion: nil);
