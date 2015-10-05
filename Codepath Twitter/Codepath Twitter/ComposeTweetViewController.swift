@@ -21,6 +21,11 @@ class ComposeTweetViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.barTintColor = UIColor(rgba: "#55ACEE");
+        self.navigationController?.navigationBar.translucent = false;
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor();
+        
         if replyToTweet != nil {
             self.tweetField.text = "@\((replyToTweet!.user?.screenname)!) "
         }
@@ -38,7 +43,7 @@ class ComposeTweetViewController: UIViewController {
     }
 
     @IBAction func onTweetButtonPressed(sender: AnyObject) {
-        var dict = NSMutableDictionary()
+        let dict = NSMutableDictionary()
         dict["status"] = tweetField.text!
         if replyToTweet != nil {
             dict["in_reply_to_status_id"] = replyToTweet!.idString!

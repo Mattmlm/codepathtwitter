@@ -36,6 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="272" y="136"/>
         </scene>
         <!--Home-->
         <scene sceneID="uac-DG-nuW">
@@ -279,7 +280,7 @@
             </objects>
             <point key="canvasLocation" x="2627" y="574"/>
         </scene>
-        <!--Compose Tweet View Controller-->
+        <!--Compose-->
         <scene sceneID="lk1-q3-7Ns">
             <objects>
                 <viewController id="HUb-pZ-Hl5" customClass="ComposeTweetViewController" customModule="Codepath_Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -307,7 +308,7 @@
                             <constraint firstItem="nMA-o4-fsb" firstAttribute="top" secondItem="gHe-wk-4u8" secondAttribute="bottom" id="mdx-c5-mCG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="n3M-DC-pZe">
+                    <navigationItem key="navigationItem" title="Compose" id="n3M-DC-pZe">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="WQt-lR-aas">
                             <connections>
                                 <action selector="onCancelButtonPressed:" destination="HUb-pZ-Hl5" id="Hqb-cx-zEz"/>
