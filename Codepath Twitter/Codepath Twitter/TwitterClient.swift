@@ -62,8 +62,9 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         }
     }
     
-    func favoriteWithCompletion(params: NSDictionary?, completion: (error: NSError?) -> ()) {
-        POST("1.1/favorites/create.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+    func favoriteWithCompletion(state: Bool, params: NSDictionary?, completion: (error: NSError?) -> ()) {
+        let endpoint = (state) ? "1.1/favorites/create.json" : "1.1/favorites/destroy.json"
+        POST(endpoint, parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             print(response)
             completion(error: nil)
         }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in

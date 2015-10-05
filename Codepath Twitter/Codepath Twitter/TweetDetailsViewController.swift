@@ -21,6 +21,7 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var tweetRetweetsLabel: UILabel!
     @IBOutlet weak var tweetFavoritesCountLabel: UILabel!
     @IBOutlet weak var tweetFavoritesLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class TweetDetailsViewController: UIViewController {
         self.userNameLabel.text = self.tweet.user?.name!
         self.screenNameLabel.text = "@\((self.tweet.user?.screenname)!)"
         self.tweetTextLabel.text = self.tweet.text!
+        self.favoriteButton.selected = self.tweet.favorited!
         
         TweetDateFormatter.setDateFormatterForTweetDetails()
         self.tweetCreatedAtLabel.text = TweetDateFormatter.sharedInstance.stringFromDate(self.tweet.createdAt!);
@@ -73,8 +75,10 @@ class TweetDetailsViewController: UIViewController {
     }
     
     @IBAction func onFavoriteButtonPressed(sender: AnyObject) {
+        self.tweet.favorited = !self.favoriteButton.selected
+        self.favoriteButton.selected = !self.favoriteButton.selected
         let params = NSDictionary(object: self.tweet.id!, forKey: "id")
-        TwitterClient.sharedInstance.favoriteWithCompletion(params) { (error) -> () in
+        TwitterClient.sharedInstance.favoriteWithCompletion(self.favoriteButton.selected, params: params) { (error) -> () in
             if (error == nil) {
                 let alert: UIAlertController = UIAlertController(title: "Favorited!", message: nil, preferredStyle: .Alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)

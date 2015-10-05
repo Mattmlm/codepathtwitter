@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "886EE9DD12F9F671BE48A8BFA679F7010B042C29",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "886EE9DD12F9F671BE48A8BFA679F7010B042C29" : 0,
+    "5E90F68A7CCE5E88EE12B1F7953ABF55B91463BC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5DD0C503-FA7B-4741-B3EB-5A5FFD307729",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "886EE9DD12F9F671BE48A8BFA679F7010B042C29" : "twitter\/",
+    "5E90F68A7CCE5E88EE12B1F7953ABF55B91463BC" : "ios_yelp_swift\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Codepath Twitter",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Codepath Twitter\/Codepath Twitter.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Mattmlm\/codepathyelp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5E90F68A7CCE5E88EE12B1F7953ABF55B91463BC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Mattmlm\/codepathtwitter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "886EE9DD12F9F671BE48A8BFA679F7010B042C29"
+    }
+  ]
+}

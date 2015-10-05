@@ -198,10 +198,12 @@
                                     <action selector="onRetweetButtonPressed:" destination="GHI-h7-frg" eventType="touchUpInside" id="i7v-eh-6g5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwa-tn-vw4">
-                                <rect key="frame" x="219" y="240" width="55" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwa-tn-vw4">
+                                <rect key="frame" x="219" y="243.5" width="81" height="22"/>
                                 <animations/>
-                                <state key="normal" title="Favorite"/>
+                                <state key="normal" title="Favorite" image="favorite"/>
+                                <state key="selected" image="favorite_on"/>
+                                <state key="highlighted" image="favorite_on"/>
                                 <connections>
                                     <action selector="onFavoriteButtonPressed:" destination="GHI-h7-frg" eventType="touchUpInside" id="nav-9j-Xpb"/>
                                 </connections>
@@ -265,6 +267,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="favoriteButton" destination="Mwa-tn-vw4" id="3gj-Qk-bQK"/>
                         <outlet property="profileImageView" destination="pZM-U4-h8c" id="oml-z3-eVW"/>
                         <outlet property="screenNameLabel" destination="1T3-qq-qwc" id="UId-Px-2xO"/>
                         <outlet property="tweetCreatedAtLabel" destination="akD-3h-0Wc" id="QXP-sB-Ajw"/>
@@ -372,6 +375,10 @@
             <point key="canvasLocation" x="2627" y="-173"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="favorite" width="16" height="16"/>
+        <image name="favorite_on" width="16" height="16"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fSd-8c-jp6"/>
     </inferredMetricsTieBreakers>
