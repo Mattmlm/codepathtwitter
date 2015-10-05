@@ -77,6 +77,12 @@ class TweetDetailsViewController: UIViewController {
     @IBAction func onFavoriteButtonPressed(sender: AnyObject) {
         self.tweet.favorited = !self.favoriteButton.selected
         self.favoriteButton.selected = !self.favoriteButton.selected
+        if (self.favoriteButton.selected) {
+            self.tweet.favoriteCount!++
+        } else {
+            self.tweet.favoriteCount!--
+        }
+        self.tweetFavoritesCountLabel.text = "\(self.tweet.favoriteCount!)"
         let params = NSDictionary(object: self.tweet.id!, forKey: "id")
         TwitterClient.sharedInstance.favoriteWithCompletion(self.favoriteButton.selected, params: params) { (error) -> () in
             if (error == nil) {
